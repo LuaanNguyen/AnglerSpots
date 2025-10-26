@@ -9,6 +9,7 @@
 /* Begin PBXFileReference section */
 		B38A363E2EAEABC200F45199 /* AnglerSpots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnglerSpots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38A364F2EAEAD4B00F45199 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		B38A36512EAEAE3100F45199 /* SpotsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,6 +34,7 @@
 		B38A36352EAEABC200F45199 = {
 			isa = PBXGroup;
 			children = (
+				B38A36502EAEAE2700F45199 /* ViewModels */,
 				B38A364E2EAEAD3900F45199 /* Models */,
 				B38A36402EAEABC200F45199 /* AnglerSpots */,
 				B38A363F2EAEABC200F45199 /* Products */,
@@ -53,6 +55,14 @@
 				B38A364F2EAEAD4B00F45199 /* Spot.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B38A36502EAEAE2700F45199 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B38A36512EAEAE3100F45199 /* SpotsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
