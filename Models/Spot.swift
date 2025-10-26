@@ -19,7 +19,13 @@ final class Spot {
     var speciesTags: [String]
     var catches: [Catch]
 
-    init(id: UUID = UUID(), name: String, latitude: Double, longitude: Double, notes: String? = nil, speciesTags: [String] = [], catches: [Catch] = []) {
+    init(id: UUID = UUID(),
+         name: String,
+         latitude: Double,
+         longitude: Double,
+         notes: String? = nil,
+         speciesTags: [String] = [],
+         catches: [Catch] = []) {
         self.id = id
         self.name = name
         self.latitude = latitude
@@ -29,26 +35,8 @@ final class Spot {
         self.catches = catches
     }
 
-    var coordinate: CLLocationCoordinate2D { .init(latitude: latitude, longitude: longitude) }
-}
-
-// Models/Catch.swift
-import Foundation
-import SwiftData
-
-@Model
-final class Catch {
-    var date: Date
-    var species: String
-    var lengthCM: Double
-    var weightKG: Double
-    var notes: String?
-
-    init(date: Date = .now, species: String, lengthCM: Double = 0, weightKG: Double = 0, notes: String? = nil) {
-        self.date = date
-        self.species = species
-        self.lengthCM = lengthCM
-        self.weightKG = weightKG
-        self.notes = notes
+    // Computed only – not persisted
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }

@@ -5,8 +5,9 @@
 //  Created by Luan Thien Nguyen on 10/26/25.
 //
 
-import CoreLocation
 import Foundation
+import CoreLocation
+import Combine
 
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined

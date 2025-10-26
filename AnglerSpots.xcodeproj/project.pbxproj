@@ -6,11 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B38A36592EAEB13500F45199 /* SpotsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A36512EAEAE3100F45199 /* SpotsViewModel.swift */; };
+		B38A365A2EAEB13900F45199 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A364F2EAEAD4B00F45199 /* Spot.swift */; };
+		B38A365B2EAEB13D00F45199 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A36542EAEB03A00F45199 /* LocationManager.swift */; };
+		B38A365C2EAEB14200F45199 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A36582EAEB0B300F45199 /* WeatherService.swift */; };
+		B38A365D2EAEB14500F45199 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A36562EAEB07300F45199 /* MapScreen.swift */; };
+		B38A365E2EAEB14900F45199 /* SpotsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A36572EAEB09300F45199 /* SpotsListScreen.swift */; };
+		B38A36682EAEB61B00F45199 /* Catch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A36672EAEB61600F45199 /* Catch.swift */; };
+		B38A366A2EAEB66C00F45199 /* SpotsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A36692EAEB66200F45199 /* SpotsDetailView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		B38A363E2EAEABC200F45199 /* AnglerSpots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnglerSpots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38A364F2EAEAD4B00F45199 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		B38A36512EAEAE3100F45199 /* SpotsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsViewModel.swift; sourceTree = "<group>"; };
 		B38A36542EAEB03A00F45199 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B38A36562EAEB07300F45199 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
+		B38A36572EAEB09300F45199 /* SpotsListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsListScreen.swift; sourceTree = "<group>"; };
+		B38A36582EAEB0B300F45199 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		B38A36672EAEB61600F45199 /* Catch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catch.swift; sourceTree = "<group>"; };
+		B38A36692EAEB66200F45199 /* SpotsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -55,6 +71,7 @@
 		B38A364E2EAEAD3900F45199 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B38A36672EAEB61600F45199 /* Catch.swift */,
 				B38A364F2EAEAD4B00F45199 /* Spot.swift */,
 			);
 			path = Models;
@@ -71,6 +88,7 @@
 		B38A36522EAEB02500F45199 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B38A36582EAEB0B300F45199 /* WeatherService.swift */,
 				B38A36542EAEB03A00F45199 /* LocationManager.swift */,
 			);
 			path = Services;
@@ -79,6 +97,9 @@
 		B38A36552EAEB04F00F45199 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B38A36692EAEB66200F45199 /* SpotsDetailView.swift */,
+				B38A36572EAEB09300F45199 /* SpotsListScreen.swift */,
+				B38A36562EAEB07300F45199 /* MapScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,6 +178,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B38A365D2EAEB14500F45199 /* MapScreen.swift in Sources */,
+				B38A36592EAEB13500F45199 /* SpotsViewModel.swift in Sources */,
+				B38A365B2EAEB13D00F45199 /* LocationManager.swift in Sources */,
+				B38A365E2EAEB14900F45199 /* SpotsListScreen.swift in Sources */,
+				B38A365A2EAEB13900F45199 /* Spot.swift in Sources */,
+				B38A365C2EAEB14200F45199 /* WeatherService.swift in Sources */,
+				B38A366A2EAEB66C00F45199 /* SpotsDetailView.swift in Sources */,
+				B38A36682EAEB61B00F45199 /* Catch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
