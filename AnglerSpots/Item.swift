@@ -1,9 +1,9 @@
+// Luan Nguyen
+// CSE335
+// Phase I
 //
 //  Item.swift
 //  AnglerSpots
-//
-//  Created by Luan Thien Nguyen on 10/26/25.
-//
 
 import Foundation
 import SwiftData

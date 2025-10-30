@@ -1,9 +1,10 @@
+// Luan Nguyen
+// CSE335
+// Phase I
 //
 //  WeatherService.swift
 //  AnglerSpots
-//
-//  Created by Luan Thien Nguyen on 10/26/25.
-//
+
 
 import Foundation
 import CoreLocation
@@ -14,10 +15,16 @@ struct WeatherResponse: Decodable {
 }
 
 final class WeatherService {
+    //  Minimal network client for current temperature via Open-Meteo.
     func fetchCurrentTemp(lat: Double, lon: Double) async throws -> Double? {
         let urlStr = "https://api.open-meteo.com/v1/forecast?latitude=\(lat)&longitude=\(lon)&current=temperature_2m"
-        guard let url = URL(string: urlStr) else { return nil }
+        
+        guard let url = URL(string: urlStr) else {
+            return nil
+        }
+        
         let (data, _) = try await URLSession.shared.data(from: url)
+        
         let decoded = try JSONDecoder().decode(WeatherResponse.self, from: data)
         return decoded.current?.temperature_2m
     }

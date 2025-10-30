@@ -1,8 +1,9 @@
+// Luan Nguyen
+// CSE335
+// Phase I
 //
 //  Spot.swift
 //  AnglerSpots
-//
-//  Created by Luan Thien Nguyen on 10/26/25.
 //
 
 import Foundation
@@ -11,6 +12,7 @@ import CoreLocation
 
 @Model
 final class Spot {
+    // this is representing a fishing spot
     @Attribute(.unique) var id: UUID
     var name: String
     var latitude: Double
@@ -35,7 +37,7 @@ final class Spot {
         self.catches = catches
     }
 
-    // Computed only – not persisted
+    // Convenience coordinate for MapKit annotations and camera positioning
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }

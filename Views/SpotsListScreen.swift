@@ -1,10 +1,10 @@
-
+// Luan Nguyen
+// CSE335
+// Phase I
 //
 //  Untitled.swift
 //  AnglerSpots
-//
-//  Created by Luan Thien Nguyen on 10/26/25.
-//
+
 
 import SwiftUI
 

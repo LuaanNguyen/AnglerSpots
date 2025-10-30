@@ -1,13 +1,14 @@
+// Luan Nguyen
+// CSE335
+// Phase I
 //
 //  SpotsDetailView.swift
 //  AnglerSpots
-//
-//  Created by Luan Thien Nguyen on 10/26/25.
-//
+
 
 import SwiftUI
 
-struct SpotDetailView: View {
+struct SpotDetailView: View { //  Detail view for a single Spot
     let spot: Spot?
     @State private var temp: String = "—"
     @State private var isLoading = false
@@ -46,6 +47,7 @@ struct SpotDetailView: View {
                     }
                 }
             }
+            // Lazy-load current weather once when the view appears
             .task {
                 guard !isLoading else { return }
                 isLoading = true

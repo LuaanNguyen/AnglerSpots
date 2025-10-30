@@ -1,15 +1,16 @@
+// Luan Nguyen
+// CSE335
+// Phase I
 //
 //  Catch.swift
 //  AnglerSpots
-//
-//  Created by Luan Thien Nguyen on 10/26/25.
-//
 
 import Foundation
 import SwiftData
 
 @Model
 final class Catch {
+    // info for a single catch made at a spot
     var date: Date
     var species: String
     var lengthCM: Double

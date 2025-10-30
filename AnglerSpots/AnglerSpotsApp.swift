@@ -1,9 +1,10 @@
+// Luan Nguyen
+// CSE335
+// Phase I
 //
 //  AnglerSpotsApp.swift
 //  AnglerSpots
-//
-//  Created by Luan Thien Nguyen on 10/26/25.
-//
+
 
 import SwiftUI
 import SwiftData
@@ -14,6 +15,7 @@ struct AnglerSpotsApp: App {
         WindowGroup {
             ContentView()
         }
+        // shared SwiftData container to app
         .modelContainer(for: [Spot.self, Catch.self])
     }
 }

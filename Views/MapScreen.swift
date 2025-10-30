@@ -1,9 +1,12 @@
+// Luan Nguyen
+// CSE335
+// Phase I
 //
 //  MapScreen.swift
 //  AnglerSpots
 //
-//  Created by Luan Thien Nguyen on 10/26/25.
-//
+//  Map-based browsing UI for fishing spots.
+
 
 import SwiftUI
 import MapKit
@@ -11,12 +14,13 @@ import SwiftData
 
 struct MapScreen: View {
     @ObservedObject var vm: SpotsViewModel
-    @StateObject private var loc = LocationManager()
+    @StateObject private var loc = LocationManager()   // Manages location permission and current location
     @State private var camera = MapCameraPosition.userLocation(fallback: .automatic)
 
     var body: some View {
         VStack {
             Map(position: $camera) {
+                // Show an annotation for each filtered spot.
                 ForEach(vm.filteredSpots, id: \.id) { spot in
                     Annotation(spot.name, coordinate: spot.coordinate) {
                         Button {
@@ -28,11 +32,13 @@ struct MapScreen: View {
                         }
                     }
                 }
+                // Display the user's current location on the map
                 UserAnnotation()
             }
-            .onAppear { loc.request() }
+            .onAppear { loc.request() } // Request location permission when the map appears
             .frame(minHeight: 300)
 
+            // (DEMO for now)
             HStack {
                 TextField("Search spots", text: $vm.searchText)
                     .textFieldStyle(.roundedBorder)
@@ -44,6 +50,7 @@ struct MapScreen: View {
             }
             .padding()
 
+            // detail view when a spot is selected.
             NavigationLink(
                 destination: SpotDetailView(spot: vm.selectedSpot),
                 isActive: Binding(
