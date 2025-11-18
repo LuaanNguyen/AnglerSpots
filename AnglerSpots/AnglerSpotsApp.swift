@@ -1,11 +1,9 @@
 // Luan Nguyen
 // CSE335
-// Phase I
+// Phase II
 //
 //  AnglerSpotsApp.swift
 //  AnglerSpots
-
-
 import SwiftUI
 import SwiftData
 
@@ -13,9 +11,8 @@ import SwiftData
 struct AnglerSpotsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView()  // main view of the app
         }
-        // shared SwiftData container to app
         .modelContainer(for: [Spot.self, Catch.self])
     }
 }

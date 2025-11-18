@@ -1,20 +1,23 @@
 // Luan Nguyen
 // CSE335
-// Phase I
+// Phase II
 //  ContentView.swift
 //  AnglerSpots
-
 
 import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var context
+    @Environment(\.modelContext) private var context  // SwiftData
+    
     @StateObject private var vm = SpotsViewModel()
     
     var body: some View {
         NavigationStack {
             if vm.isInitialized {
+                //TODO: maybe add loading screen like fishbrains
+
+                // show tabs once the view model is ready
                 TabView {
                     // map tab for browsing spots on a map
                     MapScreen(vm: vm)
@@ -23,9 +26,9 @@ struct ContentView: View {
                     // list tab for browsing spots in a list
                     SpotsListScreen(vm: vm)
                         .tabItem { Label("List", systemImage: "list.bullet") }
+                    
                 }
             } else {
-                // wait until SwiftData context is ready and then inject it into the view model.
                 ProgressView("Loading…")
                     .task {
                         vm.setContext(context)

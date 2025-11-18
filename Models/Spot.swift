@@ -1,6 +1,6 @@
 // Luan Nguyen
 // CSE335
-// Phase I
+// Phase II
 //
 //  Spot.swift
 //  AnglerSpots
@@ -11,15 +11,18 @@ import SwiftData
 import CoreLocation
 
 @Model
-final class Spot {
+final class Spot: Identifiable {
     // this is representing a fishing spot
     @Attribute(.unique) var id: UUID
-    var name: String
+    var name: String  // the name of the fishing spot
+    
     var latitude: Double
     var longitude: Double
-    var notes: String?
-    var speciesTags: [String]
-    var catches: [Catch]
+    
+    var notes: String?  // optional notes about the spot
+    var speciesTags: [String]  // list of fish species found here
+    var catches: [Catch]  // all the catches logged at this spot
+    var locationType: String  // e.g., "Lake", "River", "Ocean", "Pond"
 
     init(id: UUID = UUID(),
          name: String,
@@ -27,7 +30,8 @@ final class Spot {
          longitude: Double,
          notes: String? = nil,
          speciesTags: [String] = [],
-         catches: [Catch] = []) {
+         catches: [Catch] = [],
+         locationType: String = "Lake") {
         self.id = id
         self.name = name
         self.latitude = latitude
@@ -35,9 +39,11 @@ final class Spot {
         self.notes = notes
         self.speciesTags = speciesTags
         self.catches = catches
+        self.locationType = locationType
     }
 
     // Convenience coordinate for MapKit annotations and camera positioning
+    // this converts lat/lon to CLLocationCoordinate2D which MapKit needs
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
