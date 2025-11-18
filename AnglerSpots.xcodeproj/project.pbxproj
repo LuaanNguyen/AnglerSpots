@@ -15,6 +15,8 @@
 		B38A365E2EAEB14900F45199 /* SpotsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A36572EAEB09300F45199 /* SpotsListScreen.swift */; };
 		B38A36682EAEB61B00F45199 /* Catch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A36672EAEB61600F45199 /* Catch.swift */; };
 		B38A366A2EAEB66C00F45199 /* SpotsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A36692EAEB66200F45199 /* SpotsDetailView.swift */; };
+		B3ACACBD2ECC04330035212A /* AddSpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ACACBC2ECC04330035212A /* AddSpotView.swift */; };
+		B3ACACBE2ECC04330035212A /* AddCatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ACACBB2ECC04330035212A /* AddCatchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		B38A36582EAEB0B300F45199 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		B38A36672EAEB61600F45199 /* Catch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catch.swift; sourceTree = "<group>"; };
 		B38A36692EAEB66200F45199 /* SpotsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsDetailView.swift; sourceTree = "<group>"; };
+		B3ACACBB2ECC04330035212A /* AddCatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCatchView.swift; sourceTree = "<group>"; };
+		B3ACACBC2ECC04330035212A /* AddSpotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -97,6 +101,8 @@
 		B38A36552EAEB04F00F45199 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B3ACACBB2ECC04330035212A /* AddCatchView.swift */,
+				B3ACACBC2ECC04330035212A /* AddSpotView.swift */,
 				B38A36692EAEB66200F45199 /* SpotsDetailView.swift */,
 				B38A36572EAEB09300F45199 /* SpotsListScreen.swift */,
 				B38A36562EAEB07300F45199 /* MapScreen.swift */,
@@ -178,6 +184,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3ACACBD2ECC04330035212A /* AddSpotView.swift in Sources */,
+				B3ACACBE2ECC04330035212A /* AddCatchView.swift in Sources */,
 				B38A365D2EAEB14500F45199 /* MapScreen.swift in Sources */,
 				B38A36592EAEB13500F45199 /* SpotsViewModel.swift in Sources */,
 				B38A365B2EAEB13D00F45199 /* LocationManager.swift in Sources */,
@@ -311,7 +319,7 @@
 			};
 			name = Release;
 		};
-		B38A364C2EAEABC300F45199 /* Debug */ = {
+			B38A364C2EAEABC300F45199 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -325,6 +333,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "AnglerSpots needs your location to show fishing spots on a map and help you find nearby spots.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,7 +351,7 @@
 			};
 			name = Debug;
 		};
-		B38A364D2EAEABC300F45199 /* Release */ = {
+			B38A364D2EAEABC300F45199 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -356,6 +365,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "AnglerSpots needs your location to show fishing spots on a map and help you find nearby spots.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
