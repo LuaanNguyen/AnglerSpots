@@ -116,8 +116,26 @@ struct MapScreen: View {
                 }
             }
             .mapControls {
-                MapUserLocationButton()  // button to center on user
-                MapCompass()  // compass control
+                // Removed MapUserLocationButton because it centers on SF in simulator
+                // Use custom button below instead
+                MapCompass()
+            }
+            .overlay(alignment: .topTrailing) {
+                // Custom button to center on all spots instead of user location
+                if !vm.spots.isEmpty {
+                    Button {
+                        centerMapOnSpots()
+                    } label: {
+                        Image(systemName: "location.fill")
+                            .font(.title3)
+                            .foregroundColor(.white)
+                            .padding(10)
+                            .background(Color.blue)
+                            .clipShape(Circle())
+                            .shadow(radius: 3)
+                    }
+                    .padding()
+                }
             }
             .frame(minHeight: 400)
 
@@ -219,6 +237,27 @@ struct MapScreen: View {
                 .padding()
             }
         }
+    }
+    
+    // center map on all spots
+    private func centerMapOnSpots() {
+        guard !vm.spots.isEmpty else { return }
+        
+        let coordinates = vm.spots.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) }
+        let minLat = coordinates.map { $0.latitude }.min() ?? 33.4
+        let maxLat = coordinates.map { $0.latitude }.max() ?? 33.6
+        let minLon = coordinates.map { $0.longitude }.min() ?? -111.9
+        let maxLon = coordinates.map { $0.longitude }.max() ?? -111.4
+        
+        let centerLat = (minLat + maxLat) / 2
+        let centerLon = (minLon + maxLon) / 2
+        let latDelta = max((maxLat - minLat) * 1.5, 0.05)
+        let lonDelta = max((maxLon - minLon) * 1.5, 0.05)
+        
+        camera = .region(MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon),
+            span: MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
+        ))
     }
     
     // helper function to get icon for location type
