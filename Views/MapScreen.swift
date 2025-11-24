@@ -70,21 +70,49 @@ struct MapScreen: View {
                 }
             }
             .onAppear {
-                loc.request()  // request location permission when map appears
-                // Update user location in view model
-                if let location = loc.currentLocation {
+                loc.request()
+                
+                // If we have spots, center map to show them
+                if !vm.spots.isEmpty {
+                    let coordinates = vm.spots.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) }
+                    let minLat = coordinates.map { $0.latitude }.min() ?? 33.4
+                    let maxLat = coordinates.map { $0.latitude }.max() ?? 33.6
+                    let minLon = coordinates.map { $0.longitude }.min() ?? -111.9
+                    let maxLon = coordinates.map { $0.longitude }.max() ?? -111.4
+                    
+                    let centerLat = (minLat + maxLat) / 2
+                    let centerLon = (minLon + maxLon) / 2
+                    let latDelta = max((maxLat - minLat) * 1.5, 0.05)
+                    let lonDelta = max((maxLon - minLon) * 1.5, 0.05)
+                    
+                    camera = .region(MKCoordinateRegion(
+                        center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon),
+                        span: MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
+                    ))
+                } else if let location = loc.currentLocation {
                     vm.setUserLocation(location)
-                    // center map on user's location
                     camera = .region(MKCoordinateRegion(
                         center: location.coordinate,
                         span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
                     ))
+                } else {
+                    // Default to Tempe, Arizona if no location available
+                    camera = .region(MKCoordinateRegion(
+                        center: CLLocationCoordinate2D(latitude: 33.4278, longitude: -111.9376),
+                        span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+                    ))
                 }
             }
             .onChange(of: loc.currentLocation) { oldValue, newValue in
-                // update user location when GPS updates
                 if let location = newValue {
                     vm.setUserLocation(location)
+                    // Only center on user location if there are no spots
+                    if vm.spots.isEmpty {
+                        camera = .region(MKCoordinateRegion(
+                            center: location.coordinate,
+                            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+                        ))
+                    }
                 }
             }
             .mapControls {

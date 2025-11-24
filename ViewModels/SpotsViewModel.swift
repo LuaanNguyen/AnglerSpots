@@ -49,6 +49,122 @@ final class SpotsViewModel: ObservableObject {
     func setContext(_ context: ModelContext) {
         self.context = context
         loadSpots()
+        
+        // add some sample spots if empty
+        if spots.isEmpty {
+            populateSampleData()
+        }
+    }
+    
+    private func populateSampleData() {
+        guard let context else { return }
+        
+        let tempeTownLake = Spot(
+            name: "Tempe Town Lake",
+            latitude: 33.4278,
+            longitude: -111.9376,
+            notes: "Great urban fishing spot. I wouldn't eat them in here. Watch for small carps near the bridges.",
+            locationType: "Lake"
+        )
+        tempeTownLake.speciesTags = ["Largemouth Bass", "Catfish", "Bluegill"]
+        
+        let catch1 = Catch(date: Date().addingTimeInterval(-7 * 24 * 3600), species: "Largemouth Bass", lengthCM: 38.0, weightKG: 1.2, notes: "Caught near the marina dock with senko")
+        let catch2 = Catch(date: Date().addingTimeInterval(-14 * 24 * 3600), species: "Catfish", lengthCM: 45.0, weightKG: 1.8, notes: "Big one! Used chicken liver as bait")
+        let catch3 = Catch(date: Date().addingTimeInterval(-3 * 24 * 3600), species: "Largemouth Bass", lengthCM: 32.0, weightKG: 0.9, notes: nil)
+        context.insert(catch1)
+        context.insert(catch2)
+        context.insert(catch3)
+        tempeTownLake.catches = [catch1, catch2, catch3]
+        context.insert(tempeTownLake)
+        
+        let saltRiver = Spot(
+            name: "Salt River - Blue Point",
+            latitude: 33.5456,
+            longitude: -111.5687,
+            notes: "Best accessed via Blue Point Bridge. Can get crowded but stocked regularly by the state.",
+            locationType: "River"
+        )
+        saltRiver.speciesTags = ["Largemouth Bass", "Bluegill", "Catfish"]
+        
+        let catch4 = Catch(date: Date().addingTimeInterval(-5 * 24 * 3600), species: "Largemouth Bass", lengthCM: 35.0, weightKG: 1.0, notes: "Caught in a deep pool near the bridge")
+        let catch5 = Catch(date: Date().addingTimeInterval(-10 * 24 * 3600), species: "Bluegill", lengthCM: 18.0, weightKG: 0.2, notes: "Lots of small ones, perfect for kids!")
+        
+        context.insert(catch4)
+        context.insert(catch5)
+        saltRiver.catches = [catch4, catch5]
+        context.insert(saltRiver)
+        
+        let papagoPond = Spot(
+            name: "Papago Park Ponds",
+            latitude: 33.4615,
+            longitude: -111.9476,
+            notes: "Small but reliable ponds for beginners and families. Stocked regularly.",
+            locationType: "Pond"
+        )
+        papagoPond.speciesTags = ["Bluegill", "Catfish", "Sunfish"]
+        
+        let catch6 = Catch(date: Date().addingTimeInterval(-2 * 24 * 3600), species: "Bluegill", lengthCM: 15.0, weightKG: 0.15, notes: "Caught several, good day.")
+        let catch7 = Catch(date: Date().addingTimeInterval(-8 * 24 * 3600), species: "Catfish", lengthCM: 28.0, weightKG: 0.5, notes: nil)
+        context.insert(catch6)
+        context.insert(catch7)
+        papagoPond.catches = [catch6, catch7]
+        context.insert(papagoPond)
+        
+        let kiwanisLake = Spot(
+            name: "Kiwanis Recreation Center Lake",
+            latitude: 33.4064,
+            longitude: -111.9446,
+            notes: "Family-friendly fishing spot with easy access. Great for trout in winter months. Has fishing pier and chairs.",
+            locationType: "Lake"
+        )
+        kiwanisLake.speciesTags = ["Rainbow Trout", "Largemouth Bass", "Catfish"]
+        
+        let catch8 = Catch(date: Date().addingTimeInterval(-12 * 24 * 3600), species: "Rainbow Trout", lengthCM: 28.0, weightKG: 0.4, notes: "Caught with powerbait, stocker fish but fun!")
+        let catch9 = Catch(date: Date().addingTimeInterval(-6 * 24 * 3600), species: "Largemouth Bass", lengthCM: 30.0, weightKG: 0.8, notes: "Nice catch off the pier")
+        let catch10 = Catch(date: Date().addingTimeInterval(-1 * 24 * 3600), species: "Catfish", lengthCM: 35.0, weightKG: 0.7, notes: nil)
+        
+        context.insert(catch8)
+        context.insert(catch9)
+        context.insert(catch10)
+        kiwanisLake.catches = [catch8, catch9, catch10]
+        context.insert(kiwanisLake)
+        
+        let canyonLake = Spot(
+            name: "Canyon Lake Marina",
+            latitude: 33.5425,
+            longitude: -111.4350,
+            notes: "Mountain lake about 30 min from Tempe. Beautiful scenery, Great for striper bass and trout.",
+            locationType: "Lake"
+        )
+        canyonLake.speciesTags = ["Largemouth Bass", "Smallmouth Bass", "Rainbow Trout"]
+        
+        let catch11 = Catch(date: Date().addingTimeInterval(-4 * 24 * 3600), species: "Largemouth Bass", lengthCM: 40.0, weightKG: 1.5, notes: "Best catch of the season! Caught near the marina docks")
+        let catch12 = Catch(date: Date().addingTimeInterval(-9 * 24 * 3600), species: "Smallmouth Bass", lengthCM: 33.0, weightKG: 0.9, notes: "First smallmouth ever!!!")
+        context.insert(catch11)
+        context.insert(catch12)
+        canyonLake.catches = [catch11, catch12]
+        context.insert(canyonLake)
+        
+        let saguaroLake = Spot(
+            name: "Saguaro Lake - Butcher Jones",
+            latitude: 33.5733,
+            longitude: -111.5189,
+            notes: "One of the best bass fishing spots in AZ. Unfortunately, all the fish die in the summer due to PH level changes.",
+            locationType: "Lake"
+        )
+        saguaroLake.speciesTags = ["Largemouth Bass", "Smallmouth Bass", "Rainbow Trout", "Catfish"]
+        
+        let catch13 = Catch(date: Date().addingTimeInterval(-11 * 24 * 3600), species: "Largemouth Bass", lengthCM: 42.0, weightKG: 1.8, notes: "Monster bass! Personal best. Used topwater lure at dawn.")
+        let catch14 = Catch(date: Date().addingTimeInterval(-15 * 24 * 3600), species: "Rainbow Trout", lengthCM: 30.0, weightKG: 0.5, notes: "Winter stocking season, caught several")
+        let catch15 = Catch(date: Date().addingTimeInterval(-13 * 24 * 3600), species: "Smallmouth Bass", lengthCM: 35.0, weightKG: 1.1, notes: nil)
+        context.insert(catch13)
+        context.insert(catch14)
+        context.insert(catch15)
+        saguaroLake.catches = [catch13, catch14, catch15]
+        context.insert(saguaroLake)
+        
+        save()
+        loadSpots()
     }
     
     // update user's location for distance calculations
