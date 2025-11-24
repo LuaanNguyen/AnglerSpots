@@ -12,8 +12,7 @@ import SwiftUI
 import MapKit
 import SwiftData
 
-// MapScreen - shows fishing spots on a map
-// This is one of the two main tabs in the app
+// MapScreen
 struct MapScreen: View {
     @ObservedObject var vm: SpotsViewModel  // view model for business logic
     @StateObject private var loc = LocationManager()   // Manages location permission and current location
@@ -25,7 +24,7 @@ struct MapScreen: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // The map itself - uses MapKit
+            // The map itself uses MapKit
             Map(position: $camera) {
                 // Show an annotation for each filtered spot.
                 // Each spot shows as a pin on the map
@@ -303,7 +302,7 @@ struct MapScreen: View {
                     }
                 }
             } catch {
-                // handle error - just show dash
+                // handle error
                 await MainActor.run {
                     currentTemperature = "—"
                     isLoadingTemperature = false
@@ -398,7 +397,7 @@ struct CurrentTemperatureCard: View {
     }
 }
 
-// Filter chip - shows active filter with X button to remove
+// shows active filter with X button to remove
 struct FilterChip: View {
     let text: String  // filter text
     let color: Color  // chip color

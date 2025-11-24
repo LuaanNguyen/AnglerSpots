@@ -7,15 +7,16 @@
 
 import SwiftUI
 
+// AddCatchView
 // Form to log a fish catch at a spot
 struct AddCatchView: View {
     @ObservedObject var vm: SpotsViewModel
     let spot: Spot
     @Environment(\.dismiss) private var dismiss
     
-    @State private var species: String = ""  // fish species (e.g., "Bass")
+    @State private var species: String = ""  // fish species
     @State private var lengthCM: String = ""  // length in centimeters
-    @State private var weightKG: String = ""  // weight (kg)
+    @State private var weightKG: String = ""
     
     @State private var notes: String = ""  // (optional) notes
     @State private var date: Date = Date()  // date caught (defaulted to today)
@@ -77,7 +78,7 @@ struct AddCatchView: View {
         return true
     }
     
-    // add catch to spot -
+    // add catch to spot
     private func addCatch() {
         // convert strings to doubles
         guard let length = Double(lengthCM),
@@ -91,7 +92,7 @@ struct AddCatchView: View {
             species: species,
             lengthCM: length,
             weightKG: weight,
-            notes: notes.isEmpty ? nil : notes,  // nil if empty
+            notes: notes.isEmpty ? nil : notes,
             date: date
         )
         

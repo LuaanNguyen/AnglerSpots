@@ -49,7 +49,6 @@ final class WeatherService {
         return WeatherData(temperature: temp, sunrise: sunrise, sunset: sunset)
     }
     
-    // old func
     func fetchCurrentTemp(lat: Double, lon: Double) async throws -> Double? {
         let weatherData = try await fetchWeatherData(lat: lat, lon: lon)
         return weatherData.temperature

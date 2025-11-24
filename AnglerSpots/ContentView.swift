@@ -15,18 +15,16 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             if vm.isInitialized {
-                //TODO: maybe add loading screen like fishbrains
-
-                // show tabs once the view model is ready
                 TabView {
-                    // map tab for browsing spots on a map
+                    // map tab: browsing spots on a map
                     MapScreen(vm: vm)
                         .tabItem { Label("Map", systemImage: "map") }
 
-                    // list tab for browsing spots in a list
+                    // list tab: browsing spots in a list
                     SpotsListScreen(vm: vm)
                         .tabItem { Label("List", systemImage: "list.bullet") }
                     
+                    //TODO: maybe add loading screen like fishbrains
                 }
             } else {
                 ProgressView("Loading…")
@@ -39,7 +37,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    // in-memory store for previews so no on-disk persistence is used.
     let container = try! ModelContainer(
         for: Spot.self, Catch.self,
         configurations: ModelConfiguration(isStoredInMemoryOnly: true)

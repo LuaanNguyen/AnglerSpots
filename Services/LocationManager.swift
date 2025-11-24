@@ -5,13 +5,11 @@
 //  LocationManager.swift
 //  AnglerSpots
 
-
 import Foundation
 import CoreLocation
-
 import Combine
 
-// This class handles all GPS/location stuff -
+// This class handles all GPS/location stuff
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined  // permission status
     @Published var currentLocation: CLLocation?  // user's current GPS location
@@ -30,7 +28,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         manager.startUpdatingLocation()
     }
 
-    // Delegate: reflect authorization changes into a published property
+    // reflect authorization changes into a published property
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         authorizationStatus = status
         // if permission granted, start updating location
@@ -39,7 +37,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         }
     }
 
-    // Delegate: publish the most recent location
+    // publish the most recent location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentLocation = locations.last  // get the most recent location
     }

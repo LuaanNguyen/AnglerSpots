@@ -14,7 +14,7 @@ import CoreLocation
 final class Spot: Identifiable {
     // this is representing a fishing spot
     @Attribute(.unique) var id: UUID
-    var name: String  // the name of the fishing spot
+    var name: String
     
     var latitude: Double
     var longitude: Double

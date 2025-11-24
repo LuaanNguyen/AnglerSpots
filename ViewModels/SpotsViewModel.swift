@@ -261,7 +261,7 @@ final class SpotsViewModel: ObservableObject {
         do { try context.save() } catch { print("Save error:", error) }
     }
     
-    // Get all unique species from all spots - used for filter dropdown
+    // Get all unique species from all spots used for filter dropdown
     var allSpecies: [String] {
         var speciesSet = Set<String>()
         for spot in spots {
@@ -275,7 +275,7 @@ final class SpotsViewModel: ObservableObject {
         return Array(speciesSet).sorted()
     }
     
-    // Get all unique location types - used for filter dropdown
+    // Get all unique location types used for filter dropdown
     var allLocationTypes: [String] {
         var typesSet = Set<String>()
         for spot in spots {

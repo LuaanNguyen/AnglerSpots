@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreLocation
 
+// AddSpotView
 // form to add a new fishing spot
 struct AddSpotView: View {
     @ObservedObject var vm: SpotsViewModel
@@ -121,12 +122,12 @@ struct AddSpotView: View {
             lon = lonVal
         }
         
-        // call view model to add spot - saves to SwiftData
+        // call view model to add spot abd saves to SwiftData
         vm.addSpot(
             name: name,
             lat: lat,
             lon: lon,
-            notes: notes.isEmpty ? nil : notes,  // nil if empty
+            notes: notes.isEmpty ? nil : notes,  
             locationType: locationType
         )
         

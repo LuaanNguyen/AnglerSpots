@@ -8,9 +8,7 @@
 
 import SwiftUI
 
-// ------------ SpotsListScreen ------------
-// shows all fishing spots in a
-// This is one of the two main tabs in the app
+// SpotsListScreen
 struct SpotsListScreen: View {
     @ObservedObject var vm: SpotsViewModel
     

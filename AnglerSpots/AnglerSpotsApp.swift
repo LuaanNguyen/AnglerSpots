@@ -11,7 +11,7 @@ import SwiftData
 struct AnglerSpotsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()  // main view of the app
+            ContentView()  
         }
         .modelContainer(for: [Spot.self, Catch.self])
     }

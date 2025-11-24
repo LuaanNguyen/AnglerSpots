@@ -8,8 +8,8 @@
 
 import SwiftUI
 
+//SpotDetailView
 // shows detailed info about a fishing spot
-// This is a sheet that appears when user taps a spot on map or in list
 struct SpotDetailView: View {
     let spot: Spot?
     @ObservedObject var vm: SpotsViewModel
